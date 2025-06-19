@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <link rel="stylesheet" href="styles.css"/>  
+    <script src="scripts.js" type="text/javascript" defer></script>
+    <script src="navbar.js" type="text/javascript" defer></script>
+    <title>Elections Canada</title>
+</head>
+<body>
+    <!-- ===================================================================================== -->
+    <navbar-component></navbar-component>
+    <!-- ========================================================================= -->
+         <!-- Display the current status of the database connection. 
+         !!HERE TO HELP U DEBUGGING, NOT REQUIRED IN YOUR OWN PROJECT!!
+         -->
+    <h1>Database Connection Status: 
+        <!-- An in-line placeholder to display connection status. -->
+        <span id="dbStatus"> </span>
+        <!-- A loading GIF, will be hided once get the status. -->
+        <img id="loadingGif" class="loading-gif" src="loading_100px.gif" alt="Loading...">
+    </h1>
+
+    <hr>
+    <h1>Elections Canada</h1>
+        <!-- Show 'Demotable'. 
+        Data will be fetched and inserted here dynamically using JavaScript. -->
+        <h2>All Registered Voters</h2>
+        <table id="votertable" border="1">
+            <thead>
+                <tr>
+                    <!--Table head, need to be adjusted accordingly to align with your own.-->
+                    <th>SIN</th>
+                    <th>Email</th>
+                    <th>Full Name</th>
+                    <th>DOB</th>
+                    <th>Vote Status</th>
+                    <th>Party</th>
+                    <th>Role</th>
+                    <th>Street Address</th>
+                    <th>Postal Code</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    <br><hr><br> 
+
+    <h2>Register as a Voter</h2>
+    <form id="register">
+        SIN: <input type="number" max="999999999" min="100000000" id="insertSIN" placeholder="000000000" required/> <br><br>
+        Full Name: <input type="text" id="insertName"  maxlength="20" required/> <br><br>
+        Email: <input type="email" id="insertEmail" maxlength="30" required/> <br><br>
+        Date of Birth: <input type="text" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" id="insertDOB" placeholder="YYYY-MM-DD" required/> <br><br>
+        Street Address: <input type="text" id="insertAddress" maxlength="30" required/> <br><br>
+        City: <input type="text" id="insertCity" maxlength="20" required/> <br><br>
+        <label for="prov-select">Province:</label>
+        <select name="prov-select" id="prov-select">
+            <option value="Alberta">Alberta</option>
+            <option value="British Columbia">British Columbia</option>
+            <option value="Manitoba">Manitoba</option>
+            <option value="New Brunswick">New Brunswick</option>
+            <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+            <!-- <option value="Northwest Territories">Northwest Territories</option> -->
+            <option value="Nova Scotia">Nova Scotia</option>
+            <!-- <option value="Nunavut">Nunavut</option> -->
+            <option value="Ontario">Ontario</option>
+            <option value="Prince Edward Island">Prince Edward Island</option>
+            <option value="Quebec">Quebec</option>
+            <option value="Saskatchewan">Saskatchewan</option>
+            <!-- <option value="Yukon">Yukon</option> -->
+        </select><br><br>
+        Postal Code: <input type="text" id="insertPC" maxlength="6" minlength="6" placeholder="A1A1A1"required/> <br><br>
+        <button type="submit"> Submit </button> <br>
+    </form>
+    <div id="insertResultMsg"></div>
+
+    <h2>Select or Update your Party Affiliation</h2>
+    <form id="affiliation">
+        SIN: <input type="number" max="999999999" min="100000000" id="updateSIN" placeholder="000000000" required/><br><br>
+        <label>Party: </label>
+        <select name="parties" id="party-select"></select><br><br>
+        <button type="submit"> Submit </button> <br>
+    </form>
+    <div id="updateResultMsg"></div>
+
+    <h2>Cast your ballot</h2>
+    <!-- throw an error if the voter isn't registered -->
+    <!-- dropdown for polling stations -->
+    <!-- query the candidates in that polling station and put their names in a dropdown-->
+
+    <form id="choose-riding">
+        SIN: <input type="number" max="999999999" min="100000000" id="voterSIN" placeholder="000000000" required/><br><br>
+        <label>Polling station: </label>
+        <select name="station" id="station-select">
+        </select><br><br>
+        <button type="submit"> Submit </button><br>
+    </form>
+    <div id="getCandidatesResult"></div>
+    <h5>Please ensure you have correctly entered your information. Then, candidate options will appear.</h5>
+    <label>Candidate: </label>
+    <select name="candidates" id="vote">
+        <!-- update this dynamically after querying for the candidates in the chosen riding-->
+    </select> <br><br>
+    <button id="cast" type="submit"> Submit </button><br>
+    <div id="votingResult"></div>
+</body>
+</html>

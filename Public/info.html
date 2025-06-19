@@ -1,0 +1,105 @@
+<!-- another page to display results and platforms -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <link rel="stylesheet" href="styles.css"/>  
+    <script src="info_scripts.js" type="text/javascript" defer></script>
+    <script src="navbar.js" type="text/javascript" defer></script>
+    
+    <navbar-component></navbar-component>
+    <title>Party Info</title>
+    <h2>Canada's Major Parties</h2>
+    <h4>Select one or more attributes to project onto the table:</h4>
+    (Projecting no attributes defaults to a projection of every attribute, for your convenience.)
+    <br>
+    <br>
+    <form id="attributeProjector">
+        <label><input type="checkbox" name="partyAttributes" value="PartyName"> Party Name</label>
+        <label><input type="checkbox" name="partyAttributes" value="FoundingYear"> Founding Year</label>
+        <label><input type="checkbox" name="partyAttributes" value="Incumbent"> Incumbent Status</label>
+    </form>
+    <br>
+    <!-- <button type="submit"> Project it! </button> <br> <br> -->
+    <table id="overview" border="1">
+        <thead>
+            <th>Party Name</th>
+            <th>Founding Year</th>
+            <th>Incumbent?</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <br><br>
+    <h2>View party platforms</h2>
+    <label>Toggle between showing all policies and showing only policies shared between all parties</label>
+        <button id="all">Show All Policies</button>
+        <button id="common">Show Shared Policies</button>
+    <table id="platforms" border="1">
+        <thead>
+            <tr>
+                <!--Table head, need to be adjusted accordingly to align with your own.-->
+                <th>Party</th>
+                <th>Policy</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <h2>Party Removal</h2>
+    <form id="partygone">
+        <label>Party: </label>
+        <select name="parties" id="party-delete"></select><br>
+        <h4> <p style="color:red;">WARNING: THIS IS A PERMANENT ACTION.</p></h4>
+        <button type="submit"> Delete it! </button> <br>
+
+    </form>
+
+    <!-- TODO LATER: make the delete options dynamic
+    <form id="party-delete">
+        <label>Party: </label>
+        <select name="parties" id="party-delete">
+        </select><br><br>
+        <button type="submit"> Submit </button><br>
+    </form>
+    //-->
+    <div id="deletePartyResultMsg"></div>
+
+    <!-- TODO: Riding selection -->
+    <h2>Find information about ridings</h2>
+    <h4>HOW DO I USE THIS?</h4>
+    <p style="color:red">All attributes are cAsE sENsiTIVE!</p>
+    <br>
+    You can use the following four attributes to query: <b>ID, Population, Name, Province </b>
+    <br>
+    For clauses, you may use: <b>>, >=, <, <=, =, &lt;&gt; (not equal), !=, AND, OR</b>
+    <br>
+    As an example, you may have <b>ID >= 59005 OR Name = Delta AND Population < 100000. </b>
+    <br>
+    Happy querying!
+    <br><br>
+    Enter your selection query here. To see all ridings again, reload the page.
+    <form id="selectionQuery">
+        <textarea id="querier" name="query" rows="7" cols="75" placeholder="Enter your query"></textarea>
+        <br>
+        <button id = "querySubmit" type ="submit">Submit Query</button><br><br>
+    </form>
+    <button id="average" type="submit">Click to show ridings that have a larger population than the average riding population of their province</button><br><br>
+    <!-- TODO: Add a tutorial tab that can be opened that explains exactly how to format queries for user -->
+    <table id="ridingtable" border="1">
+        <thead>
+            <th>ID</th>
+            <th>Population</th>
+            <th>Name</th>
+            <th>Province</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</head>
+</html>

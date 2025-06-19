@@ -1,0 +1,49 @@
+<!-- another page to display results and platforms -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <link rel="stylesheet" href="styles.css"/> 
+    <script src="results_scripts.js" type="text/javascript" defer></script>
+    <script src="navbar.js" type="text/javascript" defer></script> 
+
+    <navbar-component></navbar-component>
+    <title>Voting Application</title>
+    <h2>Votes cast per Riding</h2>
+    <table id="winners" border="1">
+        <thead>
+            <tr>
+                <th>Riding</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <br><br>
+    <button id="refresh">Refresh</button>
+    <br><br>
+
+    <h2>Official Parties</h2>
+    <p>An official party is a party that has more than 12 seats in parliament</p>
+    <form id="get-official">
+        <button type="submit">Get Data</button>
+    </form>
+    <br><br>
+    <div id="officialResultMsg"></div>
+    <br><br>
+    <table id="official" border="1">
+        <thead>
+            <tr>
+                <th>Party Name</th>
+                <th>Seat Count</th>
+            </tr>
+        </thead>
+        <tbody></tbody>   
+    </table>
+</head>
+</html>
