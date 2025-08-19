@@ -1,5 +1,5 @@
 /*
- * Code was taken from and based on the CPSC 304 sample project that was provided us
+ * Code has elements based on the CPSC 304 sample project that was to provided us
  */
 
 const oracledb = require('oracledb');

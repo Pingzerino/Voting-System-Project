@@ -1,5 +1,5 @@
 /*
- * Code was taken from and based on the CPSC 304 sample project that was provided us
+ * Code has elements that are based on a sample project that was provided to us.
  */
 
 const express = require('express');

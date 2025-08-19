@@ -1,4 +1,3 @@
-
 // adds the available parties to the dropdown
 async function fetchParties() {
     const response = await fetch('/projection', {
